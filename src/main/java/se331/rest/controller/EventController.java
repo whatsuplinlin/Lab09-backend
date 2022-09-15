@@ -22,7 +22,7 @@ public class EventController {
 
     @Autowired
     EventService eventService;
-    @GetMapping("event")
+    @GetMapping("events")
     public ResponseEntity<?> getEventLists(@RequestParam(value = "_limit", required = false) Integer perPage
             , @RequestParam(value = "_page", required = false) Integer page) {
         List<Event> output = null;
@@ -38,7 +38,7 @@ public class EventController {
 
     }
 
-    @GetMapping("event/{id}")
+    @GetMapping("events/{id}")
     public ResponseEntity<?> getEvent(@PathVariable("id") Long id) {
         Event output = eventService.getEvent(id);
         if (output != null) {
